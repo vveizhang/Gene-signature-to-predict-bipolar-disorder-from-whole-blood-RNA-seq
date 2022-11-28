@@ -13,14 +13,14 @@ The whole blood RNA-sequencing data comes from 240 bipolar disorder patients and
 <p align="center">
 <img src="/imgs/RNA_seq_raw.png">
 <br>
-<em>Bitcoin</em></p>
+<em>Whole blood RNA-seq data</em></p>
 
 Here shows the valcano plot of the result of Differential Expressed Genes analysis:
 
 <p align="center">
 <img src="/imgs/valcano.png">
 <br>
-<em>Bitcoin</em></p>
+<em>Valcano Plot</em></p>
 
 ### Feature selection using mRMR "minimum Redundancy - Maximum Relevance" ###
 y is the target variable, is the variable you want to predict. The rest of the variables are the features we want to select from. K is the number of features will be selected.
