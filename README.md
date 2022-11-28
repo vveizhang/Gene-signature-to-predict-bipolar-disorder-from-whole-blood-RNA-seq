@@ -49,10 +49,36 @@ selected_features
 
 I tested Random Forest, SVM, XGB/Gradient Boosting, LightGBM, Catboost using grid search to compare their best performance.
 
+```python
+# XGB
+estimator = XGBClassifier(
+    objective= 'binary:logistic',
+    nthread=4,
+    seed=42, eval_metric='mlogloss'
+)
+
+parameters = {
+    'max_depth': range (2, 10, 1),
+    'n_estimators': range(60, 220, 40),
+    'learning_rate': [0.1, 0.01, 0.05]
+}
+
+grid_search = GridSearchCV(
+    estimator=estimator,
+    param_grid=parameters,
+    scoring = 'roc_auc',
+    cv = 10,
+    verbose=True
+)
+
+grid_search.fit(X_train,y_train)
+```
+Here shows the ROC curve of the best models of each algorithms.
+
 <p align="center">
 <img src="/imgs/Roc.png">
 <br>
-<em>RocAUC of the best model from the grid search of different algorithms</em></p>
+<em>ROC curve of the best model from the grid search of different algorithms</em></p>
 
 ### References ###
 [1] Molly Howland, M.D. Alex El Sehamy, M.D. What Are Bipolar Disorders?. BMC Med Genomics 13, 122 (2020).
