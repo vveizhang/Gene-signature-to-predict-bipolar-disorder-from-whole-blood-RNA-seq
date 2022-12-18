@@ -26,12 +26,15 @@ Here shows the valcano plot of the result of Differential Expressed Genes analys
 y is the target variable, is the variable you want to predict. The rest of the variables are the features we want to select from. K is the number of features will be selected.
 
 ```python
+# divide the data set into features (X) and label (y). The label here is the Bipolar disorder diagnosis.
 X = df.iloc[:,:-1]
 y = df.iloc[:,-1]
 
+# use mrmr library to select 10 features
 from mrmr import mrmr_classif
 selected_features = mrmr_classif(X=X, y=y, K=10)
 
+# list the features selected by mrmr
 selected_features
 ['TAGLN2P1',
  'NOLC1P1',
@@ -50,7 +53,7 @@ selected_features
 I tested Random Forest, SVM, XGB/Gradient Boosting, LightGBM, Catboost using grid search to compare their best performance.
 
 ```python
-# XGB
+# use grid search to find the best parameters for XGB algorithm
 estimator = XGBClassifier(
     objective= 'binary:logistic',
     nthread=4,
